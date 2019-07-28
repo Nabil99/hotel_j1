@@ -1,0 +1,35 @@
+
+<h1>Create Hotel</h1>
+<form [formGroup] = "createHotelForm" (ngSubmit)="onSubmit()">
+  <input type = "text" placeholder = " Hotel Name " formControlName = "hotelName"><br><br>
+  <input type = "text" placeholder = " Contact No. " formControlName = "contactNo"><br><br>
+  <input type = "text" placeholder = " Owner Name " formControlName = "ownerName"><br><br>
+  <input type = "text" placeholder = " Owner Email Address " formControlName = "ownerEmail"><br><br>
+  <input type = "text" placeholder = " Password " formControlName = "password"><br><br>
+  <input type = "text" placeholder = " Hotel bank Details " formControlName = "hotelBankDetails"><br><br>
+  <input type = "text" placeholder = " Bank Name " formControlName = "bankName"><br><br>
+  <input type = "text" placeholder = " Bank Account no " formControlName = "accountNo"><br><br>
+  <input type = "text" placeholder = " IFSC NO " formControlName = "ifscNo"><br><br>
+  <input type = "text" placeholder = " Acc type " formControlName = "accType"><br><br>
+  <input type = "text" placeholder = " Owner Aadhar No " formControlName = "ownerAadhar"><br><br>
+  <input type = "text" placeholder = " PAN Card No " formControlName = "panCardNo"><br><br>
+  <input type = "text" placeholder = " Sales Id " formControlName = "saledid"><br><br>
+  <label> plan </label><br>
+  <select name = " plan "  formControlName = "plan">
+    <option value = " prepaid ">Prepaid</option>
+    <option value = " flexible ">Flexible</option>
+    </select><br><br>
+    <label> Views </label><br>
+    <select name = " Views "  formControlName = "views">
+      <option value = " tokenOnly "> Token Only </option>
+      <option value = " tableOnly "> Table Only </option>
+      <option value = " tokenTable "> Token & Table </option>
+      </select><br><br>
+      <label> Access </label><br>
+      <input type ="checkbox" [formControl]="control" (change)="getselectedFruitValues()" id="inlineCheckbox{{i}}" *ngFor="let control of fruitsArray.controls; let i = index;"><br>
+      <label for="inlineCheckbox{{i}}">{{fruits[i]}}</label>
+      
+      
+
+  <button type = " submit "> Submit </button>
+</form>
