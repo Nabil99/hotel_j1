@@ -23,7 +23,7 @@ export class ApiServiceService {
       'hotel_token': ''
     }
 
-    return this.http.post(this.apiUrl, JSON.stringify(dataValue),  this.httpOptions)
+    return this.http.post(this.apiUrl,dataValue, this.httpOptions)
         .toPromise()
         .then(this.extractData)
         .catch(this.handleErrorObservable);
