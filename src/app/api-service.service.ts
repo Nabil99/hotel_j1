@@ -9,8 +9,8 @@ export class ApiServiceService {
   private apiUrl = "http://192.168.0.20:7825/interceptor.go";
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      Accept: 'text/plain'
+      'Content-Type': 'application/x-www-form-urlencoded' ,
+      'Accept': 'application/json'
     })
   };
   constructor(private http: HttpClient) { }
@@ -19,10 +19,11 @@ export class ApiServiceService {
     console.log(value);
     const dataValue = {
       function: 'AddHotel',
-      args: value
+      args: value,
+      hotel_token: ''
     }
-    
-    return this.http.post(this.apiUrl, dataValue,  this.httpOptions)
+
+    return this.http.post(this.apiUrl, JSON.stringify(dataValue),  this.httpOptions)
         .toPromise()
         .then(this.extractData)
         .catch(this.handleErrorObservable);
@@ -31,7 +32,7 @@ export class ApiServiceService {
     const body = res.json();
     return body || {};
   }
-  
+
   private handleErrorObservable (error: Response | any) {
     console.error(error);
     return Observable.throw(error);
