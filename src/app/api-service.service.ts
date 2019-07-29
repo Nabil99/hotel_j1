@@ -18,9 +18,9 @@ export class ApiServiceService {
   addHotel(value: any): Promise<any> {
     console.log(value);
     const dataValue = {
-      function: 'AddHotel',
-      args: value,
-      hotel_token: ''
+      'function': 'AddHotel',
+      'args': value,
+      'hotel_token': ''
     }
 
     return this.http.post(this.apiUrl, JSON.stringify(dataValue),  this.httpOptions)
