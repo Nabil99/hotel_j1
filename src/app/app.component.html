@@ -28,8 +28,8 @@
       <label> Access </label><br>
       <input type ="checkbox" [formControl]="control" (change)="getselectedFruitValues()" id="inlineCheckbox{{i}}" *ngFor="let control of fruitsArray.controls; let i = index;"><br>
       <label for="inlineCheckbox{{i}}">{{fruits[i]}}</label>
-      
-      
+
+
 
   <button type = " submit "> Submit </button>
 </form>

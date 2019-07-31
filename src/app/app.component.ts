@@ -59,15 +59,16 @@ ngOnInit(){
         this.selectedFruitValues.push(this.fruits[i]);
       }
     });
-
     console.log(this.selectedFruitValues);
   }
 
-  
-  
+
+
   onSubmit() {
+    this.createHotelForm.patchValue({'favFruits': this.selectedFruitValues});
     console.log(this.createHotelForm.value);
-    this._http.addHotel(this.createHotelForm.value);
+    this._http.addHotel(this.createHotelForm.value)
+    console.log(typeof(this.createHotelForm.value).toString());
   }
 
 }

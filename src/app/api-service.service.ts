@@ -1,29 +1,49 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
-  private apiUrl = "http://192.168.0.20:7825/interceptor.go";
+  //private apiUrl = "http://192.168.0.11:7825/bin/interceptor";
+  private apiUrl = "http://192.168.0.11:7825/";
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded' ,
-      'Accept': 'application/json'
+      'Content-Type': 'application/x-www-form-urlencoded' //'application/json'
     })
   };
   constructor(private http: HttpClient) { }
 
   addHotel(value: any): Promise<any> {
     console.log(value);
-    const dataValue = {
+    var dataValue = {
       'function': 'AddHotel',
-      'args': value,
+      'onkar': 'raje',
+      'onffkar': 'raje',
+      'fdsf': 'raje',
+      'oenkar': 'raje',
+      'owwnkar': 'raje',
       'hotel_token': ''
     }
 
-    return this.http.post(this.apiUrl,dataValue, this.httpOptions)
+    const params = new HttpParams()
+    .set('function','AddHotel')
+    .set('hotel_token', '')
+    .set('args', value);
+
+    // for (const key in value) {
+    //   if (value.hasOwnProperty(key)) {
+    //     const element = value[key];
+    //     dataValue[key] = element;
+    //   }
+    // }
+
+    console.log(dataValue);
+
+
+
+    return this.http.post(this.apiUrl, params, this.httpOptions)
         .toPromise()
         .then(this.extractData)
         .catch(this.handleErrorObservable);
@@ -37,6 +57,7 @@ export class ApiServiceService {
     console.error(error);
     return Observable.throw(error);
   }
+
 }
 
 
