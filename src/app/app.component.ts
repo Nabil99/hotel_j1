@@ -37,7 +37,7 @@ ngOnInit(){
     saledid : [''],
     plan : [''],
     views : [''],
-    favFruits : this.addFruitsControls()
+    access : this.addFruitsControls()
   });
 
   addFruitsControls(){
@@ -49,7 +49,7 @@ ngOnInit(){
   }
 
   get fruitsArray() {
-    return <FormArray>this.createHotelForm.get('favFruits');
+    return <FormArray>this.createHotelForm.get('access');
   }
 
   getselectedFruitValues() {
@@ -65,7 +65,7 @@ ngOnInit(){
 
 
   onSubmit() {
-    this.createHotelForm.patchValue({'favFruits': this.selectedFruitValues});
+    this.createHotelForm.patchValue({'access': this.selectedFruitValues});
     console.log(this.createHotelForm.value);
     this._http.addHotel(this.createHotelForm.value)
     console.log(typeof(this.createHotelForm.value).toString());

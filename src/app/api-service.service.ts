@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ApiServiceService {
   //private apiUrl = "http://192.168.0.11:7825/bin/interceptor";
-  private apiUrl = "http://192.168.0.11:7825/";
+  private apiUrl = "http://192.168.0.16:7825/";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded' //'application/json'
@@ -30,7 +30,7 @@ export class ApiServiceService {
     const params = new HttpParams()
     .set('function','AddHotel')
     .set('hotel_token', '')
-    .set('args', value);
+    .set('args', JSON.stringify(value));
 
     // for (const key in value) {
     //   if (value.hasOwnProperty(key)) {
